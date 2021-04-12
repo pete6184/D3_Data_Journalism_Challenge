@@ -1,13 +1,13 @@
 // Set SVG parameters
-const svgWidth = 900;
-const svgHeight = 500;
+const svgWidth = 1000;
+const svgHeight = 600;
 
 // Set margins
 const margin = {
-    t: 20,
-    b: 20,
-    l: 20,
-    r: 20
+    top: 40,
+    bottom: 50,
+    left: 60,
+    right: 80
 };
 
 const width = svgWidth - margin.left - margin.right;
@@ -34,12 +34,12 @@ d3.csv("assets/data/data.csv").then(stateData => {
 
     // Create scale functions
     const xLinearScale = d3.scaleLinear()
-        .domain([20, d3.max(stateData, d => d.poverty)])
+        .domain([8, d3.max(stateData, d => d.poverty)])
         .range([0, width]);
 
     const yLinearScale = d3.scaleLinear()
-        .domain([0, d3.max(stateData, d => d.healthcare)])
-        .range([height, 1]);
+        .domain([2, d3.max(stateData, d => d.healthcare)])
+        .range([height, 0]);
 
     // Create axis functions
     const bottomAxis = d3.axisBottom(xLinearScale);
@@ -63,14 +63,15 @@ d3.csv("assets/data/data.csv").then(stateData => {
     .attr('r', '15')
     .attr('fill', 'blue')
     .attr('opacity', 0.5)
-    .attr('stroke', 'black')
-    .attr('stroke-width', 1);
+    .attr('stroke', 'red')
+    .attr('stroke-width', 1)
+    .text(d => d.abbr);
 
     // Initialize tool tip
     const toolTip = d3.tip()
         .attr('class', 'tooltip')
-        .offset([80. -60])
-        .html(d => `${d.state}<br>Poverty Rate: ${d.poverty}<br> Heathcare Rate: ${d.healthcare} `);
+        .offset([100, 0])
+        .html(d => `${d.state}<br>Poverty Rate: ${d.poverty}%<br> Heathcare Rate: ${d.healthcare}% `);
 
     // Create tooltip in the chart
     chartGroup.call(toolTip);
@@ -94,7 +95,7 @@ d3.csv("assets/data/data.csv").then(stateData => {
         .text("Percentage of Population in Poverty");
 
     chartGroup.append('text')
-        .attr('transform', `translate(${width}, ${height + margin.top} )`)
+        .attr('transform', `translate(${width / 3}, ${height + margin.top + 10} )`)
         .attr('class', 'axisText')
         .text("Percentage of Population w/o Healthcare");
 
