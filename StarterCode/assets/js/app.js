@@ -67,21 +67,21 @@ d3.csv("assets/data/data.csv").then(stateData => {
     .attr('stroke-width', 1)
     // .text(d => d.abbr);
 
-    // Add text to circles
-    const circlesText = chartGroup.append('text')
-    // .data(stateData)
-    // .join('circle')
-    .attr('dx', d => xLinearScale(d.poverty))
-    .attr('dy', d => yLinearScale(d.healthcare))
-    // .attr('color', 'red')
-    .text(d => d.abbr)
-    .classed('circleText', true);
+    // // Add text to circles
+    // const circlesText = chartGroup.append('text')
+    // // .data(stateData)
+    // // .join('circle')
+    // .attr('dx', d => xLinearScale(d.poverty))
+    // .attr('dy', d => yLinearScale(d.healthcare))
+    // // .attr('color', 'red')
+    // .text(d => d.abbr)
+    // // .classed('stateText', true);
 
     // Initialize tool tip
     const toolTip = d3.tip()
         .attr('class', 'tooltip')
         .offset([100, 0])
-        .html(d => `${d.state}<br>Poverty Rate: ${d.poverty}%<br> Heathcare Rate: ${d.healthcare}% `);
+        .html(d => `${d.state}<br>Poverty Rate: ${d.poverty}%<br> No Heathcare: ${d.healthcare}% `);
 
     // Create tooltip in the chart
     chartGroup.call(toolTip);
