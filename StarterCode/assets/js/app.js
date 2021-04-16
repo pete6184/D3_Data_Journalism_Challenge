@@ -67,15 +67,14 @@ d3.csv("assets/data/data.csv").then(stateData => {
     .attr('stroke-width', 1)
     // .text(d => d.abbr);
 
-    // // Add text to circles
-    // const circlesText = chartGroup.append('text')
-    // // .data(stateData)
-    // // .join('circle')
-    // .attr('dx', d => xLinearScale(d.poverty))
-    // .attr('dy', d => yLinearScale(d.healthcare))
-    // // .attr('color', 'red')
-    // .text(d => d.abbr)
-    // // .classed('stateText', true);
+    // Add text to circles
+    const circlesText = chartGroup.selectAll('abbreviations')
+        .data(stateData)
+        .join('text')
+        .attr('dx', d => xLinearScale(d.poverty)-10)
+        .attr('dy', d => yLinearScale(d.healthcare)+5)
+        // .attr('color', 'red')
+        .text(d => d.abbr);
 
     // Initialize tool tip
     const toolTip = d3.tip()
