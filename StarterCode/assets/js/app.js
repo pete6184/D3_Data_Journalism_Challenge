@@ -5,7 +5,7 @@ const svgHeight = 600;
 // Set margins
 const margin = {
     top: 40,
-    bottom: 50,
+    bottom: 60,
     left: 60,
     right: 80
 };
@@ -42,8 +42,8 @@ d3.csv("assets/data/data.csv").then(stateData => {
         .range([height, 0]);
 
     // Create axis functions
-    const bottomAxis = d3.axisBottom(xLinearScale);
-    const leftAxis = d3. axisLeft(yLinearScale);
+    const bottomAxis = d3.axisBottom(xLinearScale.nice());
+    const leftAxis = d3. axisLeft(yLinearScale.nice());
 
 
     // Append axes to the chart
@@ -65,7 +65,17 @@ d3.csv("assets/data/data.csv").then(stateData => {
     .attr('opacity', 0.5)
     .attr('stroke', 'red')
     .attr('stroke-width', 1)
-    .text(d => d.abbr);
+    // .text(d => d.abbr);
+
+    // Add text to circles
+    const circlesText = chartGroup.append('text')
+    // .data(stateData)
+    // .join('circle')
+    .attr('dx', d => xLinearScale(d.poverty))
+    .attr('dy', d => yLinearScale(d.healthcare))
+    // .attr('color', 'red')
+    .text(d => d.abbr)
+    .classed('circleText', true);
 
     // Initialize tool tip
     const toolTip = d3.tip()
@@ -89,7 +99,7 @@ d3.csv("assets/data/data.csv").then(stateData => {
     chartGroup.append('text')
         .attr('transform', 'rotate(-90)')
         .attr('y', 0 - margin.left)
-        .attr('x', 0 - (height))
+        .attr('x', 0 - (height / 1.3))
         .attr('dy', '1em')
         .attr('class', 'axisText')
         .text("Percentage of Population in Poverty");
