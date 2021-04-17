@@ -2,7 +2,7 @@
 
 ## Requirements & Summary
 
-This project erquired the use of Javascript and coding through a code editor. 
+This project required the use of Javascript and coding through a code editor. 
 
 ![Newsroom](https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif)
 
