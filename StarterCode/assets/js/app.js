@@ -1,6 +1,6 @@
 // Set SVG parameters
 const svgWidth = 1150;
-const svgHeight = 600;
+const svgHeight = 700;
 
 // Set margins
 const margin = {
@@ -87,7 +87,13 @@ d3.csv("assets/data/data.csv").then(stateData => {
     circlesGroup.on('mouseover', function(data) {
         toolTip.show(data, this);
     })
+        .on('mouseout', function(data) {
+            toolTip.hide(data);
+        });
 
+    circlesText.on('mouseover', function(data) {
+        toolTip.show(data, this);
+    })
         .on('mouseout', function(data) {
             toolTip.hide(data);
         });
@@ -108,3 +114,43 @@ d3.csv("assets/data/data.csv").then(stateData => {
         
 
 }).catch(error => console.log(error));
+
+const svgImage = document.querySelector("svg");
+
+// console.log(svgImage);
+let clonedsvgImage = svgImage.cloneNode(true);
+// console.log(clonedsvgImage);
+var s = new XMLSerializer().serializeToString(clonedsvgImage);
+
+var encodedData = window.btoa(unescape(encodeURIComponent(s)));
+
+// btoa(encodedData.replace(/[\u00A0-\u2666]/g, function(c) { return '&#' + c.charCodeAt(0) + ';'; }));
+
+console.log('data:image/svg+xml;base64,', encodedData)
+const img = document.createElement('img');
+img.src = 'data:image/svg+xml;base64,' + encodedData;
+document.querySelector('body').append(img);
+/*
+blob = new Blob([clonedsvgImage.outerHTML],{type:'image/svg+xml;charset=utf-8'});
+window.URL || window.webkitURL || window;
+let blobURL = URL.createObjectURL(blob);
+// console.log(blobURL);
+
+let image = new Image();
+image.onload = () => {
+  
+   let canvas = document.createElement('canvas');
+   
+   canvas.width = width;
+   
+   canvas.height = height;
+   let context = canvas.getContext('2d');
+   // draw image in canvas starting left-0 , top - 0  
+   context.drawImage(image, 0, 0, width, height );
+   console.log(canvas.toDataURL());
+  //  downloadImage(canvas); need to implement
+};
+image.src = blobURL;
+// console.log(image);
+*/
+
