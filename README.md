@@ -14,4 +14,4 @@ The editor wants to run a series of feature stories about the health risks facin
 
 The data set included is based on 2014 ACS 1-year estimates from the [US Census Bureau](https://data.census.gov/cedsci/), and includes data on rates of income, obesity, poverty, etc. by state. MOE stands for "margin of error."
 
-![Graph}(Images/Graph.jpg)
+![Graph](Images/Graph.jpg)
