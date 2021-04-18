@@ -2,7 +2,7 @@
 
 ## Requirements & Summary
 
-This project required the use of Javascript and coding through a code editor. 
+This project required the use of Javascript and coding through a code editor. TO run the code you need to run the index.html file in the live server.
 
 ![Newsroom](https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif)
 
