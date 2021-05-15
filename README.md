@@ -2,9 +2,14 @@
 
 ## Requirements & Summary
 
-This project required the use of Javascript and coding through a code editor. TO run the code you need to run the index.html file in the live server.
+This project required the use of Javascript and coding through a code editor. To run the code you need to run the index.html file in the live server.
 
 ![Newsroom](https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif)
+
+
+![Graph](Images/Graph.jpg)
+
+
 
 ## Background
 
@@ -14,4 +19,3 @@ The editor wants to run a series of feature stories about the health risks facin
 
 The data set included is based on 2014 ACS 1-year estimates from the [US Census Bureau](https://data.census.gov/cedsci/), and includes data on rates of income, obesity, poverty, etc. by state. MOE stands for "margin of error."
 
-![Graph](Images/Graph.jpg)
