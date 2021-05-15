@@ -4,14 +4,14 @@
 
 This project required the use of Javascript and coding through a code editor. To run the code you need to run the index.html file in the live server.
 
-![Newsroom](https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif)
-
 
 ![Graph](Images/Graph.jpg)
 
 
 
 ## Background
+
+![Newsroom](https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif)
 
 Welcome to the newsroom! You've just accepted a data visualization position for a major metro paper. You're tasked with analyzing the current trends shaping people's lives, as well as creating charts, graphs, and interactive elements to help readers understand your findings.
 
